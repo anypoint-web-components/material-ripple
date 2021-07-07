@@ -1,7 +1,7 @@
 {
   "name": "@anypoint-web-components/material-ripple",
   "description": "Adds a material design ripple to any container. It's a port of @polymer/paper-ripple for ESM.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "Apache-2.0",
   "main": "index.js",
   "module": "index.js",

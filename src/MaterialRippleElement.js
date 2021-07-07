@@ -108,7 +108,8 @@ export default class MaterialRippleElement extends LitElement {
   connectedCallback() {
     super.connectedCallback();
     if (this.parentNode.nodeType === Node.DOCUMENT_FRAGMENT_NODE) {  // DOCUMENT_FRAGMENT_NODE -> 11
-      this[keyEventTarget] = this.getRootNode();
+      const rNode = /** @type ShadowRoot */ (this.getRootNode());
+      this[keyEventTarget] = rNode.host || rNode;
     } else {
       this[keyEventTarget] = this.parentNode;
     }
