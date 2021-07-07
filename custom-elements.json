@@ -1,0 +1,93 @@
+{
+  "version": "experimental",
+  "tags": [
+    {
+      "name": "material-ripple",
+      "path": "./material-ripple.js",
+      "attributes": [
+        {
+          "name": "initialOpacity",
+          "description": "The initial opacity set on the wave.",
+          "type": "number"
+        },
+        {
+          "name": "opacityDecayVelocity",
+          "description": "How fast (opacity per second) the wave fades out.",
+          "type": "number"
+        },
+        {
+          "name": "recenters",
+          "description": "If true, ripples will exhibit a gravitational pull towards\nthe center of their container as they fade away.",
+          "type": "boolean"
+        },
+        {
+          "name": "center",
+          "description": "If true, ripples will center inside its container",
+          "type": "boolean"
+        },
+        {
+          "name": "noink",
+          "description": "If true, the ripple will not generate a ripple effect\nvia pointer interaction.\nCalling ripple's imperative api like `simulatedRipple` will\nstill generate the ripple effect.",
+          "type": "boolean"
+        }
+      ],
+      "properties": [
+        {
+          "name": "styles",
+          "type": "CSSResult"
+        },
+        {
+          "name": "initialOpacity",
+          "attribute": "initialOpacity",
+          "description": "The initial opacity set on the wave.",
+          "type": "number"
+        },
+        {
+          "name": "opacityDecayVelocity",
+          "attribute": "opacityDecayVelocity",
+          "description": "How fast (opacity per second) the wave fades out.",
+          "type": "number"
+        },
+        {
+          "name": "recenters",
+          "attribute": "recenters",
+          "description": "If true, ripples will exhibit a gravitational pull towards\nthe center of their container as they fade away.",
+          "type": "boolean"
+        },
+        {
+          "name": "center",
+          "attribute": "center",
+          "description": "If true, ripples will center inside its container",
+          "type": "boolean"
+        },
+        {
+          "name": "noink",
+          "attribute": "noink",
+          "description": "If true, the ripple will not generate a ripple effect\nvia pointer interaction.\nCalling ripple's imperative api like `simulatedRipple` will\nstill generate the ripple effect.",
+          "type": "boolean"
+        },
+        {
+          "name": "animating",
+          "type": "boolean"
+        },
+        {
+          "name": "target",
+          "type": "EventTarget"
+        },
+        {
+          "name": "shouldKeepAnimating",
+          "type": "boolean"
+        },
+        {
+          "name": "ripples",
+          "type": "Ripple[]"
+        }
+      ],
+      "events": [
+        {
+          "name": "transitionend"
+        }
+      ]
+    }
+  ]
+}
