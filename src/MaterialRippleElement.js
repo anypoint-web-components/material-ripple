@@ -114,7 +114,7 @@ export default class MaterialRippleElement extends LitElement {
       this[keyEventTarget] = this.parentNode;
     }
     const { target } = this;
-    const eventConfig = { capture: false };
+    const eventConfig = /** @type AddEventListenerOptions */ ({ passive: true, });
     target.addEventListener('mouseup', this[uiUpAction], eventConfig);
     target.addEventListener('touchend', this[uiUpAction], eventConfig);
     target.addEventListener('mousedown', this[uiDownAction], eventConfig);
@@ -125,7 +125,7 @@ export default class MaterialRippleElement extends LitElement {
 
   disconnectedCallback() {
     super.disconnectedCallback();
-    const eventConfig = { capture: false };
+    const eventConfig = /** @type AddEventListenerOptions */ ({ passive: true, });
     const { target } = this;
     this[keyEventTarget] = null;
     target.removeEventListener('mouseup', this[uiUpAction], eventConfig);
