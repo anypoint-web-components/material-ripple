@@ -162,6 +162,9 @@ export default class MaterialRippleElement extends LitElement {
    */
   down(event) {
     const ripple = this[addRipple]();
+    if (!ripple) {
+      return;
+    }
     ripple.downAction(event);
     if (!this[animatingValue]) {
       this[animating] = true;
@@ -191,7 +194,10 @@ export default class MaterialRippleElement extends LitElement {
 
   [onAnimationComplete]() {
     this[animating] = false;
-    /** @type HTMLElement */ (this.shadowRoot.querySelector('#background')).style.backgroundColor = '';
+    const bg = /** @type HTMLElement */ (this.shadowRoot.querySelector('#background'));
+    if (bg) {
+      bg.style.backgroundColor = '';
+    }
     this.dispatchEvent(new Event('transitionend'))
   }
 
@@ -199,10 +205,14 @@ export default class MaterialRippleElement extends LitElement {
    * @returns {Ripple} 
    */
   [addRipple]() {
-    // @ts-ignore
-    const ripple = new Ripple(this);
     const bg = /** @type HTMLElement */ (this.shadowRoot.querySelector('#background'));
     const waves = /** @type HTMLElement */ (this.shadowRoot.querySelector('#waves'));
+    if (!bg || !waves) {
+      // this is when adding a ripple was scheduled in a timer but the element has been destroyed.
+      return null;
+    }
+    // @ts-ignore
+    const ripple = new Ripple(this);
     waves.appendChild(ripple.waveContainer);
     bg.style.backgroundColor = ripple.color;
     this.ripples.push(ripple);
