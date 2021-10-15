@@ -1,4 +1,8 @@
-# `<material-ripple>`
+# Deprecated
+
+This component has been moved to `anypoint-web-components/awc`.
+
+-----
 
 This is a port of `@polymer/paper-ripple` to ListElement and ES modules. It also removes Polymer dependencies.
 
